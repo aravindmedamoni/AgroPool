@@ -1,3 +1,4 @@
+import 'package:agro_pool/screens/dearler_offered_price_for_crops.dart';
 import 'package:agro_pool/screens/home_page.dart';
 import 'package:agro_pool/screens/registration_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -26,7 +27,7 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   void initState() {
-    getCurrentUser();
+    //getCurrentUser();
     super.initState();
   }
   //Getting Firebase Info
@@ -255,33 +256,34 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                         RoundedRectangleButton(
                           onPress: () async {
-                            setState(() {
-                              isProgressVisible = true;
-                            });
-                            try {
-                              final user = await _auth.signInWithEmailAndPassword(email: emailTextEditingController.text, password: passwordTextEditingController.text);
-
-                              if(user != null){
-                                Navigator.push(context, MaterialPageRoute(builder: (context){
-                                  return HomePage();
-                                }));
-                                Toast.show('Successfully Login', context,backgroundRadius: 16.0);
-                              }else{
-                                Toast.show('Login Failed.', context,backgroundRadius: 16.0);
-                              }
-                              emailTextEditingController.clear();
-                              passwordTextEditingController.clear();
-                              setState(() {
-                                isProgressVisible = false;
-                              });
-                            } catch (e) {
-                              Toast.show('Login Failed due to ${e.toString()}', context,backgroundRadius: 16.0);
-                              setState(() {
-                                isProgressVisible = false;
-                              });
-                            }
-
-
+//                            setState(() {
+//                              isProgressVisible = true;
+//                            });
+//                            try {
+//                              final user = await _auth.signInWithEmailAndPassword(email: emailTextEditingController.text, password: passwordTextEditingController.text);
+//
+//                              if(user != null){
+//                                Navigator.push(context, MaterialPageRoute(builder: (context){
+//                                  return HomePage();
+//                                }));
+//                                Toast.show('Successfully Login', context,backgroundRadius: 16.0);
+//                              }else{
+//                                Toast.show('Login Failed.', context,backgroundRadius: 16.0);
+//                              }
+//                              emailTextEditingController.clear();
+//                              passwordTextEditingController.clear();
+//                              setState(() {
+//                                isProgressVisible = false;
+//                              });
+//                            } catch (e) {
+//                              Toast.show('Login Failed due to ${e.toString()}', context,backgroundRadius: 16.0);
+//                              setState(() {
+//                                isProgressVisible = false;
+//                              });
+//                            }
+                          Navigator.push(context, MaterialPageRoute(builder: (context){
+                            return DealersOfferedPriceToCropsPage();
+                          }));
                           },
                           buttonName: 'Login',
                           buttonColor: Colors.blueAccent,
@@ -305,9 +307,12 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                 ),
-                IconButton(icon: Icon(Icons.arrow_back), onPressed: (){
-                  Navigator.of(context).pop();
-                }),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 10.0,horizontal: 20.0),
+                  child: IconButton(icon: Icon(Icons.arrow_back,size: 40.0,), onPressed: (){
+                    Navigator.of(context).pop();
+                  }),
+                ),
               ],
             ),
           ),

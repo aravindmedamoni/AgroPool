@@ -233,6 +233,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   buttonColor: Colors.lightBlue,
                 ),
               ),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10.0,horizontal: 20.0),
+                child: IconButton(icon: Icon(Icons.arrow_back,size: 40.0,), onPressed: (){
+                  Navigator.of(context).pop();
+                }),
+              ),
             ],
           ),
         ),

@@ -8,6 +8,7 @@ class DealersListPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.grey[350],
       appBar: AppBar(
+        backgroundColor: Color(0XFF014973),
         title: Text('DealersList Screen'),
       ),
       body: Column(

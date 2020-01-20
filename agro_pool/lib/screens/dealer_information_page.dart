@@ -16,7 +16,9 @@ class DealerInformationPage extends StatelessWidget {
               Expanded(
                 child: Stack(
                   children: <Widget>[
-                    CustomAppBar(),
+                    CustomAppBar(
+                      trailIconButton:Icons.phone_forwarded,
+                    ),
                     Positioned(
                       top: MediaQuery.of(context).size.height/3.6,
                       child: Container(
@@ -106,22 +108,22 @@ class DealerInformationPage extends StatelessWidget {
                         child: Image.asset('images/clock.png',fit: BoxFit.cover,),
                       ),
                     ),
-                    Positioned(
-                      top: MediaQuery.of(context).size.height/16,
-                      right: MediaQuery.of(context).size.width/3.5,
-                      child: RawMaterialButton(
-                        shape: CircleBorder(),
-                          constraints: BoxConstraints.tightFor(
-                            width: 40.0,
-                            height: 40.0
-                          ),
-                          fillColor: Color(0xFF4c4f5e),
-                          child: Icon(Icons.edit,color: Colors.white,),
-                        onPressed: (){
-                          Toast.show('edit button clicked', context,backgroundRadius: 18.0);
-                        },
-                      ),
-                    ),
+//                    Positioned(
+//                      top: MediaQuery.of(context).size.height/16,
+//                      right: MediaQuery.of(context).size.width/3.5,
+//                      child: RawMaterialButton(
+//                        shape: CircleBorder(),
+//                          constraints: BoxConstraints.tightFor(
+//                            width: 40.0,
+//                            height: 40.0
+//                          ),
+//                          fillColor: Color(0xFF4c4f5e),
+//                          child: Icon(Icons.edit,color: Colors.white,),
+//                        onPressed: (){
+//                          Toast.show('edit button clicked', context,backgroundRadius: 18.0);
+//                        },
+//                      ),
+//                    ),
                   ],
                 ),
               ),

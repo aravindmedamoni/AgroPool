@@ -35,6 +35,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color(0XFF014973),
         title: Text("Agro Pool"),
         elevation: defaultTargetPlatform == TargetPlatform.android ? 5.0 : 0.0,
         actions: <Widget>[

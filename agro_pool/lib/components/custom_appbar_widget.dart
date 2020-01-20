@@ -63,9 +63,10 @@ class CustomAppBar extends StatelessWidget {
 //                ),
 //              ],
 //            ),
+
                 IconButton(
                     icon: Icon(
-                      trailIconButton??Icons.phone_forwarded,
+                      trailIconButton,
                       color: Colors.white,
                       size: 30.0,
                     ),
