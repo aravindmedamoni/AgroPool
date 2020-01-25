@@ -3,12 +3,13 @@ import 'package:agro_pool/components/custom_appbar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:toast/toast.dart';
 
-class DealerInformationPage extends StatelessWidget {
+class FarmerInformationPage extends StatelessWidget {
 
-  final String dealerName;
-  final String offeredCost;
+  final String farmerName;
+  final String cropName;
 
-  DealerInformationPage({this.dealerName, this.offeredCost});
+
+  FarmerInformationPage({this.farmerName, this.cropName});
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +56,7 @@ class DealerInformationPage extends StatelessWidget {
                             children: <Widget>[
                               Padding(
                                 padding: const EdgeInsets.only(top:18.0),
-                                child: Text('$dealerName',style: TextStyle(color: Colors.blueGrey,fontSize: 20.0,fontWeight: FontWeight.w700),),
+                                child: Text('$farmerName',style: TextStyle(color: Colors.blueGrey,fontSize: 20.0,fontWeight: FontWeight.w700),),
                               ),
                               Expanded(
                                 child: Padding(
@@ -64,8 +65,8 @@ class DealerInformationPage extends StatelessWidget {
                                     children: <Widget>[
                                       ListTile(
                                         leading: Icon(Icons.monetization_on),
-                                        title: Text('Offered Cost'),
-                                        subtitle: Text('Rs.$offeredCost'),
+                                        title: Text('Crop Name'),
+                                        subtitle: Text('$cropName'),
                                       ),
                                       ListTile(
                                         leading: Icon(Icons.phone_forwarded),
@@ -75,21 +76,16 @@ class DealerInformationPage extends StatelessWidget {
                                       ListTile(
                                         leading: Icon(Icons.mail),
                                         title: Text('Email Id'),
-                                        subtitle: Text('$dealerName@gmail.com'),
-                                      ),
-                                      ListTile(
-                                        leading: Icon(Icons.laptop_chromebook),
-                                        title: Text('Registration Number'),
-                                        subtitle: Text('166G74432j'),
+                                        subtitle: Text('$farmerName@gmail.com'),
                                       ),
                                       ListTile(
                                         leading: Icon(Icons.location_city),
-                                        title: Text('Dealer State'),
+                                        title: Text('Farmer State'),
                                         subtitle: Text('Telangana'),
                                       ),
                                       ListTile(
                                         leading: Icon(Icons.location_on),
-                                        title: Text('Dealer District'),
+                                        title: Text('Farmer District'),
                                         subtitle: Text('Hyderabad'),
                                       ),
                                     ],
@@ -110,12 +106,12 @@ class DealerInformationPage extends StatelessWidget {
                         height: MediaQuery.of(context).size.height/5.2,
                         decoration: BoxDecoration(
                             color: Colors.grey,
-                          borderRadius: BorderRadius.circular(16.0),
-                          border: Border.all(
-                            color: Colors.white,
-                            width: 3.0,
-                            style: BorderStyle.solid,
-                          )
+                            borderRadius: BorderRadius.circular(16.0),
+                            border: Border.all(
+                              color: Colors.white,
+                              width: 3.0,
+                              style: BorderStyle.solid,
+                            )
                         ),
 
                         child: Image.asset('images/agroprofile.jpeg',fit: BoxFit.cover,),

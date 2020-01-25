@@ -1,6 +1,7 @@
-import 'package:agro_pool/screens/dearler_offered_price_for_crops.dart';
-import 'package:agro_pool/screens/home_page.dart';
-import 'package:agro_pool/screens/registration_page.dart';
+import 'package:agro_pool/screens/dealer_home_page.dart';
+import 'package:agro_pool/screens/farmer_home_page.dart';
+import 'package:agro_pool/screens/dealer_registration_page.dart';
+import 'package:agro_pool/screens/farmer_registration_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:agro_pool/animations/fadeanimation.dart';
@@ -39,7 +40,7 @@ class _LoginPageState extends State<LoginPage> {
       currentUser = await _auth.currentUser();
       if (currentUser != null) {
         Navigator.push(context, MaterialPageRoute(builder: (context) {
-          return HomePage();
+          return FarmerHomePage();
         }));
       } else {
 
@@ -247,9 +248,20 @@ class _LoginPageState extends State<LoginPage> {
                         // Below to buttons are imported from components rounded_rectangle_button file
                         RoundedRectangleButton(
                           onPress: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context){
-                              return RegisterScreen();
-                            }));
+                            if(selectedUserType == 'Farmer'){
+                              Navigator.push(context, MaterialPageRoute(builder: (context){
+                                selectedUserType = 'select user';
+                                return FarmerRegisterScreen();
+
+                              }));
+                            }else if(selectedUserType == 'Dealer'){
+                              Navigator.push(context, MaterialPageRoute(builder: (context){
+                                selectedUserType = 'select user';
+                                return DealerRegisterScreen();
+                              }));
+                            }else{
+                              Toast.show('Pleas Select User Type', context,backgroundRadius: 18.0,backgroundColor: Colors.deepOrangeAccent,textColor: Colors.white);
+                            }
                           },
                           buttonName: 'Register',
                           buttonColor: Colors.deepOrangeAccent,
@@ -281,9 +293,20 @@ class _LoginPageState extends State<LoginPage> {
 //                                isProgressVisible = false;
 //                              });
 //                            }
-                          Navigator.push(context, MaterialPageRoute(builder: (context){
-                            return DealersOfferedPriceToCropsPage();
-                          }));
+                          if(selectedUserType == 'Farmer'){
+                            Navigator.push(context, MaterialPageRoute(builder: (context){
+                              selectedUserType = 'select user';
+                              return FarmerHomePage();
+
+                            }));
+                          }else if(selectedUserType == 'Dealer'){
+                            Navigator.push(context, MaterialPageRoute(builder: (context){
+                              selectedUserType = 'select user';
+                              return DealerHomePage();
+                            }));
+                          }else{
+                            Toast.show('Pleas Select User Type', context,backgroundRadius: 18.0,backgroundColor: Colors.deepOrangeAccent,textColor: Colors.white);
+                          }
                           },
                           buttonName: 'Login',
                           buttonColor: Colors.blueAccent,
@@ -297,22 +320,27 @@ class _LoginPageState extends State<LoginPage> {
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 30.0),
                     child: Center(
-                      child: Text('Forgot Password.!',
-                          // imported from utils/constants.dart
-                          style: kTextFieldTextStyle.copyWith(
-                            color: Colors.deepOrange,
-                            fontWeight: FontWeight.w800,
-                            fontSize: 18.0,
-                          )),
+                      child: GestureDetector(
+                        onTap: (){
+                          Toast.show('You are trying to change your Password', context,backgroundRadius: 18.0);
+                        },
+                        child: Text('Forgot Password.!',
+                            // imported from utils/constants.dart
+                            style: kTextFieldTextStyle.copyWith(
+                              color: Colors.deepOrange,
+                              fontWeight: FontWeight.w800,
+                              fontSize: 18.0,
+                            )),
+                      ),
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 10.0,horizontal: 20.0),
-                  child: IconButton(icon: Icon(Icons.arrow_back,size: 40.0,), onPressed: (){
-                    Navigator.of(context).pop();
-                  }),
-                ),
+//                Padding(
+//                  padding: const EdgeInsets.symmetric(vertical: 10.0,horizontal: 20.0),
+//                  child: IconButton(icon: Icon(Icons.arrow_back,size: 40.0,), onPressed: (){
+//                    Navigator.of(context).pop();
+//                  }),
+//                ),
               ],
             ),
           ),

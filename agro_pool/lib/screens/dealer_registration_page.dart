@@ -1,6 +1,6 @@
 import 'dart:collection';
 
-import 'package:agro_pool/screens/home_page.dart';
+import 'package:agro_pool/screens/farmer_home_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:agro_pool/utils/constants.dart';
@@ -9,12 +9,12 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 import 'package:toast/toast.dart';
 
-class RegisterScreen extends StatefulWidget {
+class DealerRegisterScreen extends StatefulWidget {
   @override
-  _RegisterScreenState createState() => _RegisterScreenState();
+  _DealerRegisterScreenState createState() => _DealerRegisterScreenState();
 }
 
-class _RegisterScreenState extends State<RegisterScreen> {
+class _DealerRegisterScreenState extends State<DealerRegisterScreen> {
   List<String> district = [
     'Select District',
     'Ranga Reddy',
@@ -47,7 +47,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     return SafeArea(
         child: Scaffold(
       body: Container(
-        color: Colors.pink[100],
+        color: Colors.grey[350],
         child: ModalProgressHUD(
           inAsyncCall:isProgressVisible ,
           child: ListView(
@@ -208,7 +208,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       if (user != null) {
                         Navigator.push(context,
                             MaterialPageRoute(builder: (context) {
-                          return HomePage();
+                          return FarmerHomePage();
                         }));
                         Toast.show('User Registration is Success', context,backgroundRadius: 16.0);
                       }

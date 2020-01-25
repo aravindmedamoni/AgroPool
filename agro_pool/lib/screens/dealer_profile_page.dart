@@ -17,6 +17,7 @@ class DealerProfilePage extends StatelessWidget {
                 child: Stack(
                   children: <Widget>[
                     CustomAppBar(
+                      height: MediaQuery.of(context).size.height/3.6,
                     ),
                     Positioned(
                       top: MediaQuery.of(context).size.height/3.6,
@@ -42,7 +43,10 @@ class DealerProfilePage extends StatelessWidget {
                           padding: const EdgeInsets.only(top: 60.0),
                           child: Column(
                             children: <Widget>[
-                              Text('Sai Vardhan',style: TextStyle(color: Colors.blueGrey,fontSize: 20.0,fontWeight: FontWeight.w700),),
+                              Padding(
+                                padding: const EdgeInsets.only(top:18.0),
+                                child: Text('Sai Vardhan',style: TextStyle(color: Colors.blueGrey,fontSize: 20.0,fontWeight: FontWeight.w700),),
+                              ),
                               Expanded(
                                 child: Padding(
                                   padding: const EdgeInsets.only(top:8.0),
@@ -99,7 +103,7 @@ class DealerProfilePage extends StatelessWidget {
                             )
                         ),
 
-                        child: Image.asset('images/clock.png',fit: BoxFit.cover,),
+                        child: Image.asset('images/agroprofile.jpeg',fit: BoxFit.cover,),
                       ),
                     ),
                     Positioned(

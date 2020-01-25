@@ -23,12 +23,12 @@ class DealersListPage extends StatelessWidget {
             child: Container(
               child: ListView(
                 children: <Widget>[
-                  DealerDetailsCard(dealerName: 'Sai Vardhan', offeredCost: '13,000',),
-                  DealerDetailsCard(dealerName: 'Sai', offeredCost: '14,000',),
-                  DealerDetailsCard(dealerName: 'Arun Sai', offeredCost: '13,500',),
-                  DealerDetailsCard(dealerName: 'Vardhan', offeredCost: '14,600', ),
-                  DealerDetailsCard(dealerName: 'Mani', offeredCost: '16,000',),
-                  DealerDetailsCard(dealerName: 'Aravind', offeredCost: '15,000', ),
+                  DealerDetailsCard(dealerName: 'Naveen', offeredCost: '13,000',),
+                  DealerDetailsCard(dealerName: 'Anji', offeredCost: '14,000',),
+                  DealerDetailsCard(dealerName: 'Chinna', offeredCost: '13,500',),
+                  DealerDetailsCard(dealerName: 'Shankar', offeredCost: '14,600', ),
+                  DealerDetailsCard(dealerName: 'Shiva Krishna', offeredCost: '16,000',),
+                  DealerDetailsCard(dealerName: 'Ravi', offeredCost: '15,000', ),
                 ],
               ),
             ),
