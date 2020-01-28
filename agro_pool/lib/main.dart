@@ -1,3 +1,4 @@
+import 'package:agro_pool/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'screens/login_page.dart';
 
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: LoginPage(),
+      home: SplashScreen(),
     );
   }
 }

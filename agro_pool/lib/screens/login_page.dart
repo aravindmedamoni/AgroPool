@@ -200,7 +200,7 @@ class _LoginPageState extends State<LoginPage> {
                           alignment: Alignment.topRight,
                           child: DropdownButton(
                             value: selectedUserType,
-                            icon: Icon(Icons.arrow_downward,size: 18.0,),
+                            icon: Icon(Icons.keyboard_arrow_down,size: 30.0,color: Colors.blue,),
                             iconSize: 20.0,
                             items: userType.map<DropdownMenuItem<String>>((String userType) {
                               return DropdownMenuItem<String>(

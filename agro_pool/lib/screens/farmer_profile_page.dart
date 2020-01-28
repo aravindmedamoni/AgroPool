@@ -201,8 +201,10 @@ class _FarmerProfilePageState extends State<FarmerProfilePage> {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
         actions: <Widget>[
           Padding(
-            padding: const EdgeInsets.only(left: 20.0,right: 20.0,bottom: 30.0),
+            padding: const EdgeInsets.only(left:20.0,right: 20.0,bottom: 15.0),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 Column(
                   children: <Widget>[
@@ -214,7 +216,21 @@ class _FarmerProfilePageState extends State<FarmerProfilePage> {
                   ],
                 ),
                 SizedBox(
-                  width: MediaQuery.of(context).size.width/3.8,
+                  width: MediaQuery.of(context).size.width/14,
+                ),
+                Column(
+                  children: <Widget>[
+                    IconButton(icon: Icon(Icons.delete_forever,size: 40.0,color: Colors.deepOrange,), onPressed: (){
+                      setState(() {
+                        _selectedImageFile = null;
+                      });
+                      Navigator.of(context).pop();
+                    }),
+                    Text('Set Default')
+                  ],
+                ),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width/14,
                 ),
                 Column(
                   children: <Widget>[
