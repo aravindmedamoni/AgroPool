@@ -15,3 +15,19 @@ Portal for Farmers to sell the produce at a better rate
   - Agriculture 
   - E-Commerce 
   - Payment 
+
+### Implementation
+
+- We implemented two door system in which farmer and buyers have their own experience with this application.
+
+#### Application screens for farmers view
+
+Starting of an application |  Registration Screen for farmers |  Login Screen for farmers  |  Menu for farmer  |  Crop and location selection screen  |  Buyers and their offered cost for particular crop  |  Dealer profile with message and call options  
+:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
+![Starting of an application](assets/1.jpg) | ![Registration Screen for farmers](assets/2.jpg) | ![Login Screen for farmers](assets/3.jpg) | ![Menu for farmer](assets/4.jpg) | ![Crop and location selection screen](assets/5.jpg) |![Buyers and their offered cost for particular crop](assets/6.jpg) |![Dealer profile with message and call options](assets/7.jpg) 
+
+#### Application screens for Buyers view
+
+Starting of an application |  Registration Screen for buyers |  Login Screen for buyers  |  Profile screen for buyers  |  Edit profile screen  |  Add crop screen  |  Offer cost to particular farmer by chat with them  |  Chat screen
+:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
+![Starting of an application](assets/1.jpg) | ![Registration Screen for buyers](assets/2.jpg) | ![Login Screen for buyers](assets/3.jpg) | ![Profile screen for buyers](assets/8.jpg) | ![Edit profile screen](assets/9.jpg) |![Add crop screen](assets/10.jpg) |![Offer cost to particular farmers by using chat with them](assets/11.jpg) |![Chat screen](assets/12.jpg) 
