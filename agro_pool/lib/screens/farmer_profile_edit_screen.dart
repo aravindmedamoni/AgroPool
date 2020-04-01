@@ -89,18 +89,10 @@ class _FarmerProfileEditScreenState extends State<FarmerProfileEditScreen> {
                                     this.name = name;
                                   });
                                 },
-                                decoration: InputDecoration(
-                                    prefixIcon: Icon(Icons.person,),
-                                    focusedBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(color: Colors.deepOrangeAccent,width: 2.0,style: BorderStyle.solid)
-                                    ),
-                                    labelText: 'User Name',
-                                    labelStyle: TextStyle(
-                                        color: Colors.blueGrey,
-                                        fontSize: 18.0,
-                                        fontWeight: FontWeight.w500
-                                    )
-                                ),
+                                decoration: kEdtTextFieldDecoration.copyWith(
+                                  prefixIcon: Icon(Icons.person),
+                                  labelText: 'User Name'
+                                )
                               ),
                             ),
                             Padding(
@@ -108,27 +100,20 @@ class _FarmerProfileEditScreenState extends State<FarmerProfileEditScreen> {
                               child: TextFormField(
                                 validator: (mobileNumber) => mobileNumber.length < 10 ? 'Enter valid mobile Number' : null,
                                 initialValue: userData.mobileNumber,
-                                keyboardType: TextInputType.number,
-                                style: kTextFieldTextStyle.copyWith(
-                                  fontSize: 18.0,
-                                ),
-                                decoration: InputDecoration(
-                                    prefixIcon: Icon(Icons.call,),
-                                    focusedBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(color: Colors.deepOrangeAccent,width: 2.0,style: BorderStyle.solid)
-                                    ),
-                                    labelText: 'Mobile Number',
-                                    labelStyle: TextStyle(
-                                        color: Colors.blueGrey,
-                                        fontSize: 18.0,
-                                        fontWeight: FontWeight.w500
-                                    )
-                                ),
                                 onChanged: (mobileNum){
                                   setState(() {
                                     mobileNumber = mobileNum;
                                   });
                                 },
+                                keyboardType: TextInputType.number,
+                                style: kTextFieldTextStyle.copyWith(
+                                  fontSize: 18.0,
+                                ),
+                                decoration: kEdtTextFieldDecoration.copyWith(
+                                  prefixIcon: Icon(Icons.call),
+                                  labelText: 'Mobile Number'
+                                )
+
                               ),
                             ),
                             Padding(
@@ -140,19 +125,12 @@ class _FarmerProfileEditScreenState extends State<FarmerProfileEditScreen> {
                                 keyboardType: TextInputType.emailAddress,
                                 style: kTextFieldTextStyle.copyWith(
                                   fontSize: 18.0,
+                                  color: Colors.grey
                                 ),
-                                decoration: InputDecoration(
-                                    prefixIcon: Icon(Icons.email,),
-                                    focusedBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(color: Colors.deepOrangeAccent,width: 2.0,style: BorderStyle.solid)
-                                    ),
-                                    labelText: 'Email Id',
-                                    labelStyle: TextStyle(
-                                        color: Colors.blueGrey,
-                                        fontSize: 18.0,
-                                        fontWeight: FontWeight.w500
-                                    )
-                                ),
+                                decoration: kEdtTextFieldDecoration.copyWith(
+                                  prefixIcon: Icon(Icons.email),
+                                  labelText: 'Email Id',
+                                )
                               ),
                             ),
                             Padding(
@@ -169,18 +147,10 @@ class _FarmerProfileEditScreenState extends State<FarmerProfileEditScreen> {
                                 style: kTextFieldTextStyle.copyWith(
                                   fontSize: 18.0,
                                 ),
-                                decoration: InputDecoration(
-                                    prefixIcon: Icon(Icons.location_city,),
-                                    focusedBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(color: Colors.deepOrangeAccent,width: 2.0,style: BorderStyle.solid)
-                                    ),
-                                    labelText: 'Farmer State',
-                                    labelStyle: TextStyle(
-                                        color: Colors.blueGrey,
-                                        fontSize: 18.0,
-                                        fontWeight: FontWeight.w500
-                                    )
-                                ),
+                                decoration: kEdtTextFieldDecoration.copyWith(
+                                  prefixIcon: Icon(Icons.location_city),
+                                  labelText: 'Farmer State'
+                                )
                               ),
                             ),
                             Padding(
@@ -197,18 +167,7 @@ class _FarmerProfileEditScreenState extends State<FarmerProfileEditScreen> {
                                 style: kTextFieldTextStyle.copyWith(
                                   fontSize: 18.0,
                                 ),
-                                decoration: InputDecoration(
-                                    prefixIcon: Icon(Icons.location_on,),
-                                    focusedBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(color: Colors.deepOrangeAccent,width: 2.0,style: BorderStyle.solid)
-                                    ),
-                                    labelText: 'Farmer District',
-                                    labelStyle: TextStyle(
-                                        color: Colors.blueGrey,
-                                        fontSize: 18.0,
-                                        fontWeight: FontWeight.w500
-                                    )
-                                ),
+                                decoration: kEdtTextFieldDecoration
                               ),
                             ),
                           ],

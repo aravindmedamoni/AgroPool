@@ -35,3 +35,16 @@ const kAppBarContainerDecoration = BoxDecoration(
       ]
   ),
 );
+
+const kEdtTextFieldDecoration = InputDecoration(
+    prefixIcon: Icon(Icons.location_on,),
+    focusedBorder: UnderlineInputBorder(
+        borderSide: BorderSide(color: Colors.deepOrangeAccent,width: 2.0,style: BorderStyle.solid)
+    ),
+    labelText: 'Farmer District',
+    labelStyle: TextStyle(
+        color: Colors.blueGrey,
+        fontSize: 18.0,
+        fontWeight: FontWeight.w500
+    )
+);
