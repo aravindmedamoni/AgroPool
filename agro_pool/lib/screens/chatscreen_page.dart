@@ -2,6 +2,8 @@ import 'package:agro_pool/screens/message_send_page.dart';
 import 'package:flutter/material.dart';
 
 class ChatScreen extends StatelessWidget {
+  final AppBar appBar;
+  ChatScreen({this.appBar});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,6 +21,7 @@ class ChatScreen extends StatelessWidget {
 //            ),
 //          ),
 //        ],
+    appBar: appBar??null,
       body: Container(
           constraints: BoxConstraints.expand(),
           decoration: BoxDecoration(

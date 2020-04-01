@@ -41,7 +41,7 @@ class PriceAndCropsDetailsCard extends StatelessWidget {
                   buttonColor: Colors.deepPurple,
                   onPress: onPress??(){
                     Navigator.push(context, MaterialPageRoute(builder: (context){
-                      return AddUpdateCropsCostPage();
+                      return AddUpdateCropsCostPage(buttonName: 'Update',offeredCost: offeredCost,);
                     }));
                   },
                 ),

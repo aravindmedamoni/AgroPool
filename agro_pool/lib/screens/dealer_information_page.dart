@@ -1,5 +1,6 @@
 
 import 'package:agro_pool/components/custom_appbar_widget.dart';
+import 'package:agro_pool/screens/chatscreen_page.dart';
 import 'package:flutter/material.dart';
 import 'package:toast/toast.dart';
 
@@ -24,9 +25,19 @@ class DealerInformationPage extends StatelessWidget {
                   children: <Widget>[
                     CustomAppBar(
                       height: MediaQuery.of(context).size.height/3.6,
-                      trailIconButton:Icons.phone_forwarded,
-                      onPress: (){
+                      callingButton:Icons.phone_forwarded,
+                      messageButton: Icons.message,
+                      onPressCalling: (){
                         Toast.show('You are trying to connect with him', context,backgroundRadius: 18);
+                      },
+                      onPressMessage: (){
+                        Toast.show('You are trying to message to him', context,backgroundRadius: 18.0);
+                        Navigator.push(context, MaterialPageRoute(builder: (context){
+                          return ChatScreen(appBar: AppBar(
+                            title: Text('Chat Screen'),
+                            backgroundColor: Color(0XFF014973),
+                          ),);
+                        }));
                       },
                     ),
                     Positioned(

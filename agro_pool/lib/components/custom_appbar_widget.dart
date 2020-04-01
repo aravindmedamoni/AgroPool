@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:agro_pool/utils/constants.dart';
 
 class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({this.height, this.profilerName, this.trailIconButton, this.onPress});
+  const CustomAppBar({this.height, this.profilerName, this.callingButton, this.messageButton, this.onPressCalling, this.onPressMessage});
   final String profilerName;
-  final IconData trailIconButton;
-  final Function onPress;
+  final IconData callingButton,messageButton;
+  final Function onPressCalling,onPressMessage;
   final double height;
 
 
@@ -63,16 +63,32 @@ class CustomAppBar extends StatelessWidget {
 //                ),
 //              ],
 //            ),
+                Padding(
+                  padding: const EdgeInsets.only(right: 8.0),
+                  child: Column(
+                    children: <Widget>[
+                      IconButton(
+                          icon: Icon(
+                            messageButton,
+                            color: Colors.white,
+                            size: 30.0,
+                          ),
+                          onPressed: onPressMessage??() {
+                            Navigator.of(context).pop();
+                          }),
+                      IconButton(
+                          icon: Icon(
+                            callingButton,
+                            color: Colors.white,
+                            size: 30.0,
+                          ),
+                          onPressed: onPressCalling??() {
+                            Navigator.of(context).pop();
+                          }),
+                    ],
+                  ),
+                ),
 
-                IconButton(
-                    icon: Icon(
-                      trailIconButton,
-                      color: Colors.white,
-                      size: 30.0,
-                    ),
-                    onPressed: onPress??() {
-                      Navigator.of(context).pop();
-                    }),
               ],
             ),
           ],

@@ -1,9 +1,10 @@
+import 'package:agro_pool/components/fancy_floating_action_button.dart';
 import 'package:agro_pool/components/side_navigation_bar.dart';
+import 'package:agro_pool/screens/add_update_crops.dart';
 import 'package:agro_pool/screens/chatscreen_page.dart';
-import 'package:agro_pool/screens/dealer_profile_page.dart';
 import 'package:agro_pool/screens/dealers_list_page.dart';
 import 'package:agro_pool/screens/farmer_profile_page.dart';
-import 'package:agro_pool/screens/login_page.dart';
+import 'package:agro_pool/services/auth_service.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -17,10 +18,11 @@ class FarmerHomePage extends StatefulWidget {
 }
 
 class _FarmerHomePageState extends State<FarmerHomePage> {
-  //Getting Firebase intance
-  final _auth = FirebaseAuth.instance;
 
+  //Getting the AuthService Object
+  final AuthService _authService = AuthService();
 
+  //BottomBar index to show particular screen
   int bottomBarSelectedIndex = 1;
 
   final tabs = [
@@ -36,25 +38,20 @@ class _FarmerHomePageState extends State<FarmerHomePage> {
         backgroundColor: Color(0XFF014973),
         title: Text("Agro Pool"),
         elevation: defaultTargetPlatform == TargetPlatform.android ? 5.0 : 0.0,
-//        actions: <Widget>[
-//          Padding(
-//            padding: const EdgeInsets.only(right: 8.0),
-//            child: IconButton(
-//                icon: Icon(
-//                  Icons.power_settings_new,
-//                  size: 26.0,
-//                  color: Colors.white,
-//                ),
-//                onPressed: () {
-//                  _auth.signOut();
-//                  Toast.show('You logout succuessfully.', context,
-//                      backgroundRadius: 16.0);
-//                  Navigator.push(context, MaterialPageRoute(builder: (context) {
-//                    return LoginPage();
-//                  }));
-//                }),
-//          )
-//        ],
+        actions: <Widget>[
+          Padding(
+            padding: const EdgeInsets.only(right: 8.0),
+            child: IconButton(
+                icon: Icon(
+                  Icons.power_settings_new,
+                  size: 26.0,
+                  color: Colors.white,
+                ),
+                onPressed: () async{
+                 await _authService.logOut();
+                }),
+          )
+        ],
       ),
       drawer: SideNavigationBar(),
       body: tabs[bottomBarSelectedIndex],
@@ -78,13 +75,32 @@ class _FarmerHomePageState extends State<FarmerHomePage> {
             bottomBarSelectedIndex = index;
           });
         },
-        animationDuration: const Duration(milliseconds: 250),
+        animationDuration: const Duration(milliseconds: 150),
         height: 60.0,
-        backgroundColor: bottomBarSelectedIndex == 0?bottomBarSelectedIndex == 1?Colors.grey[350]:Color(0XFF008878):Colors.blueGrey,
+        backgroundColor: indexBasedBackgroundColor(),
         color: Colors.white,
         index: bottomBarSelectedIndex,
       ),
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.only(bottom: 15.0),
+        child: FancyFloatingActionButton(buttonName: 'Add Crop',onPressed: (){
+          Toast.show('you are tyring to adding..', context,backgroundRadius: 18.0);
+          Navigator.push(context, MaterialPageRoute(builder: (context){
+            return AddUpdateCrops(title:'Add Crop',);
+          }));
+        }),
+      ),
     );
+  }
+
+ Color indexBasedBackgroundColor() {
+    if(bottomBarSelectedIndex == 0){
+      return Color(0XFF008878);
+    }else if(bottomBarSelectedIndex == 1){
+     return Colors.grey[350];
+    }else{
+      return Colors.blueGrey;
+    }
   }
 }
 

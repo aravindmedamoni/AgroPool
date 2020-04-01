@@ -34,6 +34,11 @@ dependencies:
   curved_navigation_bar: ^0.3.1
   image_picker: ^0.6.3+1
   image_cropper: ^1.2.0
+  flutter_spinkit: ^4.1.1+1
+  google_sign_in:
+  flutter_facebook_login: ^3.0.0
+  flutter_twitter_login: ^1.1.0
+  provider: ^4.0.4
 
 dev_dependencies:
   flutter_test:

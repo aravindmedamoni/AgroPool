@@ -1,12 +1,15 @@
 
+import 'package:agro_pool/components/fancy_floating_action_button.dart';
 import 'package:agro_pool/components/price_and_crops_details_card.dart';
 import 'package:agro_pool/components/side_navigation_bar.dart';
+import 'package:agro_pool/screens/add_update_crops_cost_page.dart';
 import 'package:agro_pool/screens/chatscreen_page.dart';
 import 'package:agro_pool/screens/dealer_profile_page.dart';
 import 'package:agro_pool/screens/dealers_list_page.dart';
 import 'package:agro_pool/screens/farmer_list_page.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:toast/toast.dart';
 
 
 class DealerHomePage extends StatefulWidget {
@@ -57,12 +60,31 @@ class _DealerHomePageState extends State<DealerHomePage> {
         },
         animationDuration: const Duration(milliseconds: 250),
         height: 60.0,
-        backgroundColor: bottomBarSelectedIndex == 0?bottomBarSelectedIndex == 1?Colors.grey[350]:Color(0XFF008878):Colors.blueGrey,
+        backgroundColor: indexBasedBackgroundColor(),
         color: Colors.white,
         index: bottomBarSelectedIndex,
       ),
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.only(bottom: 15.0),
+        child: FancyFloatingActionButton(buttonName: 'Add Price',onPressed: (){
+          Navigator.push(context, MaterialPageRoute(builder: (context){
+            return AddUpdateCropsCostPage(buttonName: 'Add Price',);
+          }));
+          Toast.show('you are tyring to adding..', context,backgroundRadius: 18.0);
+        }),
+      ),
     );
   }
+
+   Color indexBasedBackgroundColor() {
+     if(bottomBarSelectedIndex == 0){
+       return Color(0XFF008878);
+     }else if(bottomBarSelectedIndex == 1){
+       return Colors.grey[350];
+     }else{
+       return Colors.blueGrey;
+     }
+   }
 }
 
 class DealerHomePag extends StatelessWidget {

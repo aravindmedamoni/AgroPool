@@ -5,6 +5,10 @@ import 'package:agro_pool/utils/constants.dart';
 
 class AddUpdateCropsCostPage extends StatefulWidget {
 
+  final String buttonName;
+  final String offeredCost;
+  AddUpdateCropsCostPage({@required this.buttonName, this.offeredCost});
+
   @override
   _AddUpdateCropsCostPageState createState() => _AddUpdateCropsCostPageState();
 }
@@ -77,7 +81,7 @@ class _AddUpdateCropsCostPageState extends State<AddUpdateCropsCostPage> {
                             // imported from utils/constants.dart
                             decoration: kTextFieldDecoration.copyWith(
                               // imported from utils/constants.dart
-                              hintText: 'Enter Crop Price',
+                              hintText: widget.offeredCost??'Enter Crop Price',
                               prefixIcon: Icon(Icons.monetization_on),
                             )),
                       ),
@@ -94,7 +98,7 @@ class _AddUpdateCropsCostPageState extends State<AddUpdateCropsCostPage> {
                     alignment: Alignment.bottomRight,
                       child: RoundedRectangleButton(onPress: (){
                         Navigator.of(context).pop();
-                      }, buttonName: 'Add/Update', buttonColor: Colors.deepPurple)),
+                      }, buttonName: '${widget.buttonName}', buttonColor: Colors.deepPurple)),
                 )
               ],
             ),

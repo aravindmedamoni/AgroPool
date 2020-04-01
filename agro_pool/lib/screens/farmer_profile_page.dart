@@ -2,6 +2,8 @@
 import 'dart:io';
 
 import 'package:agro_pool/components/custom_appbar_widget.dart';
+import 'package:agro_pool/components/fancy_floating_action_button.dart';
+import 'package:agro_pool/screens/farmer_profile_edit_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
@@ -17,6 +19,11 @@ class FarmerProfilePage extends StatefulWidget {
 class _FarmerProfilePageState extends State<FarmerProfilePage> {
   File _selectedImageFile;
   bool isInProgress = false;
+  String userName = 'Sai Vardhan';
+  String mobileNumber = '8179453944';
+  String emailId = 'saivardhan@gmail.com';
+  String farmerState = 'Telangana';
+  String farmerDistrict = 'Hyderabad';
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +68,25 @@ class _FarmerProfilePageState extends State<FarmerProfilePage> {
                               children: <Widget>[
                                 Padding(
                                   padding: const EdgeInsets.only(top:20.0),
-                                  child: Text('Sai Vardhan',style: TextStyle(color: Colors.blueGrey,fontSize: 20.0,fontWeight: FontWeight.w700),),
+                                  child: Text(userName,style: TextStyle(color: Colors.blueGrey,fontSize: 20.0,fontWeight: FontWeight.w700),),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(horizontal: 20.0,vertical: 10.0),
+                                  child: Align(
+                                    alignment: Alignment.topRight,
+                                    child: FancyFloatingActionButton(fillColor: Color(0XFF014973),buttonName: 'Edit',buttonIcon: Icons.mode_edit,onPressed: (){
+                                        Toast.show('You are trying to edit.', context,backgroundRadius: 18.0);
+                                        Navigator.push(context, MaterialPageRoute(builder: (context){
+                                          return FarmerProfileEditScreen(
+                                            userName: userName,
+                                            mobileNumber: mobileNumber,
+                                            emailId: emailId,
+                                            farmerState: farmerState,
+                                            farmerDistrict: farmerDistrict,
+                                          );
+                                        }));
+                                    }),
+                                  ),
                                 ),
                                 Expanded(
                                   child: Padding(
@@ -71,22 +96,22 @@ class _FarmerProfilePageState extends State<FarmerProfilePage> {
                                         ListTile(
                                           leading: Icon(Icons.phone_forwarded),
                                           title: Text('Mobile Number'),
-                                          subtitle: Text('8179453944'),
+                                          subtitle: Text(mobileNumber),
                                         ),
                                         ListTile(
                                           leading: Icon(Icons.mail),
                                           title: Text('Email Id'),
-                                          subtitle: Text('saivardhan@gmail.com'),
+                                          subtitle: Text(emailId),
                                         ),
                                         ListTile(
                                           leading: Icon(Icons.location_city),
                                           title: Text('Farmer State'),
-                                          subtitle: Text('Telangana'),
+                                          subtitle: Text(farmerState),
                                         ),
                                         ListTile(
                                           leading: Icon(Icons.location_on),
                                           title: Text('Farmer District'),
-                                          subtitle: Text('Hyderabad'),
+                                          subtitle: Text(farmerDistrict),
                                         ),
                                       ],
                                     ),
