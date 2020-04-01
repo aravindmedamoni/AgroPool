@@ -24,8 +24,8 @@ class AuthService {
 
   //Twitter Login
   TwitterLogin _twitterLogin = TwitterLogin(
-      consumerKey: 'sQOAP1YcuEiF05qhzBoV17uVF',
-      consumerSecret: 'M6QCNqg7UtyXBPp0KiYkA24zR8A3dhDT6pwOoBRN71Oi9ctSRj');
+      consumerKey: 'consumerkey',
+      consumerSecret: 'secretkey');
 
   //Check weather the user logged in or not by using authState
 
