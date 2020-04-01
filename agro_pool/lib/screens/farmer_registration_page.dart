@@ -241,32 +241,6 @@ class _FarmerRegisterScreenState extends State<FarmerRegisterScreen> {
                                 }else{
                                   Toast.show('make sure all fields are required', context,duration: 2);
                                 }
-                                try {
-                                  _fireStore.collection('Dealers').add({
-                                    'name':'${nameTextEditingController.text}',
-                                    'mail':'${mailTextEditingController.text}',
-                                    'password':'${passwordTextEditingController.text}',
-                                    'mobile number':'${mobileNumberTextEditingController.text}',
-                                    'crop name': '${cropNameTextEditingController.text}',
-                                    'district':'$selectedDistrictName'
-
-                                  });
-                                  nameTextEditingController.clear();
-                                  mailTextEditingController.clear();
-                                  passwordTextEditingController.clear();
-                                  mobileNumberTextEditingController.clear();
-                                  cropNameTextEditingController.clear();
-                                  selectedDistrictName = 'select district';
-                                  setState(() {
-                                    isProgressVisible = false;
-                                  });
-                                } catch (e) {
-                                  print(e);
-                                  setState(() {
-                                    isProgressVisible = false;
-                                  });
-                                }
-
                               },
                               buttonName: 'Register',
                               buttonColor: Colors.lightBlue,
